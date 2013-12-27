@@ -1,0 +1,4 @@
+.vagrant
+source/bootstrap/compiled.php
+source/vendor
+distribute
