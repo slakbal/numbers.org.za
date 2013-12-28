@@ -15,20 +15,10 @@ extends BaseModel
         return $this->belongsTo("Title");
     }
 
-    public function newQuery($excludeDeleted = true)
+    public function newEloquentBuilder($query)
     {
-        $builder = new Builder($this->newBaseQueryBuilder());
-
-        $builder->setModel($this)->with($this->with);
-
-        if ($excludeDeleted && $this->softDelete)
-        {
-            $builder->whereNull($this->getQualifiedDeletedAtColumn());
-        }
-
-        $builder->whereNull("died_at");
-
-        return $builder;
+        $builder = new PersonBuilder($query);
+        return $builder->whereNull("died_at");
     }
 
     public function getHumanBornAtAttribute()
