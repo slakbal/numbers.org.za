@@ -1,11 +1,9 @@
 <?php
 
 class Title
-extends Eloquent
+extends BaseModel
 {
     protected $table = "title";
-    
-    protected $softDelete = true;
 
     public function people()
     {

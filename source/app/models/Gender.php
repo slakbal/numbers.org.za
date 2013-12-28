@@ -1,11 +1,9 @@
 <?php
 
 class Gender
-extends Eloquent
+extends BaseModel
 {
     protected $table = "gender";
-    
-    protected $softDelete = true;
 
     public function people()
     {
