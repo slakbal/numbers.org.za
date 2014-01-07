@@ -45,6 +45,7 @@ extends Seeder
     {
         if (App::environment() == "production") {
             $this->command->info("Seeding disabled on production.");
+
             return;
         }
 

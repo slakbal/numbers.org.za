@@ -43,6 +43,7 @@ extends BaseModel
     public function newEloquentBuilder($query)
     {
         $builder = new PersonBuilder($query);
+
         return $builder->whereNull("died_at");
     }
 
