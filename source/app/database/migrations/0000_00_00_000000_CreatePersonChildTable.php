@@ -9,8 +9,8 @@ extends Migration
     {
         Schema::create("person_child", function ($table) {
             $table->increments("id");
-            $table->integer("child_id");
             $table->integer("person_id");
+            $table->integer("child_id");
             $table->dateTime("created_at");
             $table->dateTime("updated_at");
             $table->dateTime("deleted_at")->nullable();
