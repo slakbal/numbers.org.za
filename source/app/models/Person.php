@@ -15,11 +15,6 @@ extends BaseModel
         return $this->belongsTo("Title");
     }
 
-    public function relatives($type)
-    {
-        // TODO
-    }
-
     public function parents()
     {
         // TODO
