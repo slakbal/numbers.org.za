@@ -49,13 +49,6 @@ extends Seeder
             return;
         }
 
-        $tables = [
-            "title",
-            "gender",
-            "person",
-            "person_relative"
-        ];
-
         $this->call("TitleTableSeeder");
         $this->call("GenderTableSeeder");
         $this->call("PersonTableSeeder");
