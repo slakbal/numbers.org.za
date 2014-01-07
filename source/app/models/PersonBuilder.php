@@ -27,7 +27,7 @@ extends Illuminate\Database\Eloquent\Builder
     {
         $this->withDeceased();
         $this->query->whereNotNull("died_at");
-
+        
         return $this;
     }
 }

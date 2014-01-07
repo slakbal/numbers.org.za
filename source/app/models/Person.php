@@ -17,34 +17,32 @@ extends BaseModel
 
     public function relatives($type)
     {
-        return $this->belongsToMany("Person", "person_relative", "relative_id", "person_id")
-            ->where("relative_type", $type);
+        // TODO
     }
 
     public function parents()
     {
-        return $this->relatives("parent");
+        // TODO
     }
 
     public function children()
     {
-        return $this->relatives("child");
+        // TODO
     }
 
     public function siblings()
     {
-        return $this->relatives("sibling");
+        // TODO
     }
 
     public function spouses()
     {
-        return $this->relatives("spouse");
+        // TODO
     }
 
     public function newEloquentBuilder($query)
     {
         $builder = new PersonBuilder($query);
-
         return $builder->whereNull("died_at");
     }
 
