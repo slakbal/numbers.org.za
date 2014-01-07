@@ -2,14 +2,16 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenderTable
+class CreatePersonRelativeTable
 extends Migration
 {
     public function up()
     {
-        Schema::create("gender", function ($table) {
+        Schema::create("person_relative", function ($table) {
             $table->increments("id");
-            $table->string("name");
+            $table->integer("person_id");
+            $table->integer("relative_id");
+            $table->string("relative_type");
             $table->dateTime("created_at");
             $table->dateTime("updated_at");
             $table->dateTime("deleted_at")->nullable();
@@ -18,6 +20,6 @@ extends Migration
 
     public function down()
     {
-        Schema::dropIfExists("gender");
+        Schema::dropIfExists("person_relative");
     }
 }

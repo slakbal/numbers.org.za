@@ -11,8 +11,7 @@ extends Eloquent
 
     protected function getHumanTimestampAttribute($column)
     {
-        if ($this->attributes[$column])
-        {
+        if ($this->attributes[$column]) {
             return Carbon::parse($this->attributes[$column])->diffForHumans();
         }
 
@@ -32,5 +31,5 @@ extends Eloquent
     public function getHumanDeletedAtAttribute()
     {
         return $this->getHumanTimestampAttribute("deleted_at");
-    }    
+    }
 }

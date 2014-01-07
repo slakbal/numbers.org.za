@@ -7,8 +7,7 @@ extends Migration
 {
     public function up()
     {
-        Schema::create("person", function($table)
-        {
+        Schema::create("person", function ($table) {
             $table->increments("id");
             $table->integer("gender_id")->nullable();
             $table->integer("title_id")->nullable();

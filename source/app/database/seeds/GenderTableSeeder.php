@@ -5,6 +5,8 @@ extends DatabaseSeeder
 {
     public function run()
     {
+        Gender::truncate();
+
         $faker   = $this->getFaker();
         $created = $faker->dateTimeThisYear;
 
@@ -12,14 +14,12 @@ extends DatabaseSeeder
             [
                 "name"       => "Male",
                 "created_at" => $created,
-                "updated_at" => $created,
-                "deleted_at" => null
+                "updated_at" => $created
             ],
             [
                 "name"       => "Female",
                 "created_at" => $created,
-                "updated_at" => $created,
-                "deleted_at" => null
+                "updated_at" => $created
             ]
         ];
 

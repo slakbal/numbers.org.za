@@ -7,8 +7,7 @@ extends Migration
 {
     public function up()
     {
-        Schema::create("title", function($table)
-        {
+        Schema::create("title", function ($table) {
             $table->increments("id");
             $table->string("name");
             $table->dateTime("created_at");
