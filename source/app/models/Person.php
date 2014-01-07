@@ -17,22 +17,22 @@ extends BaseModel
 
     public function parents()
     {
-        // TODO
+        return $this->hasManyThrough("Person", "Parent");
     }
 
     public function children()
     {
-        // TODO
+        return $this->hasManyThrough("Person", "Child");
     }
 
     public function siblings()
     {
-        // TODO
+        return $this->hasManyThrough("Person", "Sibling");
     }
 
     public function spouses()
     {
-        // TODO
+        return $this->hasManyThrough("Person", "Spouse");
     }
 
     public function newEloquentBuilder($query)

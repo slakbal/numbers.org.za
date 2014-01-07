@@ -52,6 +52,9 @@ extends Seeder
         $this->call("TitleTableSeeder");
         $this->call("GenderTableSeeder");
         $this->call("PersonTableSeeder");
+        $this->call("PersonParentTableSeeder");
+        $this->call("PersonChildTableSeeder");
+        $this->call("PersonSiblingTableSeeder");
+        $this->call("PersonSpouseTableSeeder");
     }
-
 }
