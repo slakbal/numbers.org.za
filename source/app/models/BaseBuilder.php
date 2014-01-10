@@ -50,7 +50,6 @@ extends Illuminate\Database\Eloquent\Builder
 
         foreach ($filters as $key => $value)
         {
-
             if (isset($this->filterables[$key]))
             {
                 call_user_func([$this, $this->filterables[$key]], $value);
