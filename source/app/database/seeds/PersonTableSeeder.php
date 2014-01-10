@@ -40,5 +40,96 @@ extends DatabaseSeeder
                 "deleted_at" => $timestamps["deleted"]
             ]);
         }
+
+        // children + parents
+
+        DB::table("person_child")->truncate();
+        DB::table("person_parent")->truncate();
+
+        $faker  = $this->getFaker();
+        $people = Person::all()->lists("id");
+
+        for ($i = 0; $i < 10; $i++) {
+            $child  = $faker->unique()->randomElement($people);
+            $parent = $faker->unique()->randomElement($people);
+
+            $timestamps = $this->getTimestamps();
+
+            DB::table("person_child")->insert([
+                "child_id"   => $child,
+                "person_id"  => $parent,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+
+            DB::table("person_parent")->insert([
+                "parent_id"  => $parent,
+                "person_id"  => $child,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+        }
+
+        // siblings
+
+        DB::table("person_sibling")->truncate();
+
+        $faker  = $this->getFaker();
+        $people = Person::all()->lists("id");
+
+        for ($i = 0; $i < 10; $i++) {
+            $person  = $faker->unique()->randomElement($people);
+            $sibling = $faker->unique()->randomElement($people);
+
+            $timestamps = $this->getTimestamps();
+
+            DB::table("person_sibling")->insert([
+                "sibling_id" => $sibling,
+                "person_id"  => $person,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+
+            DB::table("person_sibling")->insert([
+                "sibling_id" => $person,
+                "person_id"  => $sibling,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+        }
+
+        // spouses
+
+        DB::table("person_spouse")->truncate();
+
+        $faker  = $this->getFaker();
+        $people = Person::all()->lists("id");
+
+        for ($i = 0; $i < 10; $i++) {
+            $person = $faker->unique()->randomElement($people);
+            $spouse = $faker->unique()->randomElement($people);
+
+            $timestamps = $this->getTimestamps();
+
+            DB::table("person_spouse")->insert([
+                "spouse_id"  => $spouse,
+                "person_id"  => $person,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+
+            DB::table("person_spouse")->insert([
+                "spouse_id"  => $person,
+                "person_id"  => $spouse,
+                "created_at" => $timestamps["created"],
+                "updated_at" => $timestamps["updated"],
+                "deleted_at" => $timestamps["deleted"]
+            ]);
+        }
     }
 }

@@ -30,4 +30,17 @@ extends Illuminate\Database\Eloquent\Builder
 
         return $this;
     }
+
+    public function embed($embed, $possible)
+    {
+        foreach ($possible as $label => $name)
+        {
+            if (in_array($label, $embed))
+            {
+                $this->with($name);
+            }
+        }
+
+        return $this;
+    }
 }
