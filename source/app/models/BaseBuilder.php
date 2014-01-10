@@ -48,14 +48,12 @@ extends Illuminate\Database\Eloquent\Builder
     {
         $filters = $this->splitFilters($filters);
 
-        foreach ($filters as $key1 => $value1)
+        foreach ($filters as $key => $value)
         {
-            foreach ($this->filterables as $key2 => $value2)
+
+            if (isset($this->filterables[$key]))
             {
-                if ($key1 == $key2)
-                {
-                    call_user_func([$this, $value2], $value1);
-                }
+                call_user_func([$this, $this->filterables[$key]], $value);
             }
         }
 
