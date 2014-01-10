@@ -3,6 +3,7 @@
 namespace Api;
 
 use Config;
+use Input;
 use Person;
 use Response;
 
@@ -11,24 +12,12 @@ extends BaseController
 {
     protected $order = "last_name";
 
-    protected $embeddables = [
-        "gender"   => "gender",
-        "title"    => "title",
-        "parents"  => "parents",
-        "children" => "children",
-        "spouses"  => "spouses",
-        "siblings" => "siblings"
-    ];
-
     public function indexAction()
     {
-        $query = Person::orderBy($this->order, $this->direction);
-
-        // TODO: filters
-
-        $query->embed($this->embed, $this->embeddables);
-
-        $people = $query->paginate($this->limit);
+        $people = Person::filter($this->filter)
+            ->embed($this->embed)
+            ->orderBy($this->order, $this->direction)
+            ->paginate($this->limit);
 
         return Response::json([
             "data" => $people->getCollection()->toArray(),

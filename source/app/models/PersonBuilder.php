@@ -1,45 +1,69 @@
 <?php
 
 class PersonBuilder
-extends Illuminate\Database\Eloquent\Builder
+extends BaseBuilder
 {
-    protected function isDeceasedConstraint($where)
-    {
-        if ($where["column"] == "died_at" and $where["type"] == "Null") {
-            return true;
-        }
+    protected $embeddables = [
+        "gender"   => "gender",
+        "title"    => "title",
+        "parents"  => "parents",
+        "children" => "children",
+        "spouses"  => "spouses",
+        "siblings" => "siblings"
+    ];
 
-        return false;
+    protected $filterables = [
+        "has-children"  => "filterHasChildren",
+        "has-parents"   => "filterHasParents",
+        "has-siblings"  => "filterHasSiblings",
+        "has-spouses"   => "filterHasSpouses",
+        "with-deceased" => "filterWithDeceased",
+        "only-deceased" => "filterOnlyDeceased",
+        "with-trashed"  => "filterWithTrashed",
+        "only-trashed"  => "filterOnlyTrashed"
+    ];
+
+    protected function filterHasChildren()
+    {
+        $this->has("children");
     }
 
-    public function withDeceased()
+    protected function filterHasParents()
+    {
+        $this->has("parents");
+    }
+
+    protected function filterHasSiblings()
+    {
+        $this->has("siblings");
+    }
+
+    protected function filterHasSpouses()
+    {
+        $this->has("spouses");
+    }
+
+    public function filterWithDeceased()
     {
         $this->query->wheres = array_values(
             array_filter($this->query->wheres, function ($where) {
-                return !$this->isDeceasedConstraint($where);
+
+                if ($where["column"] == "died_at" and $where["type"] == "Null") {
+                    return false;
+                }
+
+                return true;
+
             })
         );
 
         return $this;
     }
 
-    public function onlyDeceased()
+    public function filterOnlyDeceased()
     {
-        $this->withDeceased();
+        $this->filterWithDeceased();
         $this->query->whereNotNull("died_at");
-
-        return $this;
-    }
-
-    public function embed($embed, $possible)
-    {
-        foreach ($possible as $label => $name)
-        {
-            if (in_array($label, $embed))
-            {
-                $this->with($name);
-            }
-        }
 
         return $this;
     }
