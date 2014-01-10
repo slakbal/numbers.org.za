@@ -19,8 +19,8 @@ extends BaseBuilder
         "has-spouses"   => "filterHasSpouses",
         "with-deceased" => "filterWithDeceased",
         "only-deceased" => "filterOnlyDeceased",
-        "with-trashed"  => "filterWithTrashed",
-        "only-trashed"  => "filterOnlyTrashed"
+        "with-trashed"  => "withTrashed",
+        "only-trashed"  => "onlyTrashed"
     ];
 
     protected function filterHasChildren()
