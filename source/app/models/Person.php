@@ -5,6 +5,8 @@ extends BaseModel
 {
     protected $table = "person";
 
+    protected $hidden = ["pivot"];
+
     public function gender()
     {
         return $this->belongsTo("Gender");
