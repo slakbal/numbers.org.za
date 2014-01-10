@@ -6,50 +6,47 @@ extends Illuminate\Database\Eloquent\Builder
     protected $embeddables = [];
 
     protected $filterables = [
-        "with-trashed"  => "filterWithTrashed",
-        "only-trashed"  => "filterOnlyTrashed"
+        "with-trashed"  => "withTrashed",
+        "only-trashed"  => "onlyTrashed"
     ];
 
-    public function filterWithTrashed()
+    public function embed($embeds)
     {
-        $this->withTrashed();
-    }
-
-    public function filterOnlyTrashed()
-    {
-        $this->onlyTrashed();
-    }
-
-    public function embed($embed)
-    {
-        foreach ($this->embeddables as $label => $name)
+        foreach ($this->embeddables as $key => $value)
         {
-            if (in_array($label, $embed))
+            if (in_array($key, $embeds))
             {
-                $this->with($name);
+                $this->with($value);
             }
         }
 
         return $this;
     }
 
-    public function filter($filter)
+    protected function splitFilters($filters)
     {
-        $filters = [];
+        $split = [];
 
-        foreach ($filter as $raw)
+        foreach ($filters as $filter)
         {
-            $parts = explode(":", $raw, 2);
+            $parts = explode(":", $filter, 2);
 
             if (count($parts) == 2)
             {
-                $filters[$parts[0]] = $parts[1];
+                $split[$parts[0]] = $parts[1];
             }
             else
             {
-                $filters[$parts[0]] = null;
+                $split[$parts[0]] = null;
             }
         }
+
+        return $split;
+    }
+
+    public function filter($filters)
+    {
+        $filters = $this->splitFilters($filters);
 
         foreach ($filters as $key1 => $value1)
         {
