@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "9bc18eb7b82683e57388f66f1b18da31",
+    "hash": "dbca50e9e1a6bde5c34287426e6ab84f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -221,6 +221,51 @@
                 "password"
             ],
             "time": "2013-04-30 19:58:08"
+        },
+        {
+            "name": "itsgoingd/clockwork",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/itsgoingd/clockwork.git",
+                "reference": "82258c0ecf2dcf82c77bf55a508cce3629d3b67a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/82258c0ecf2dcf82c77bf55a508cce3629d3b67a",
+                "reference": "82258c0ecf2dcf82c77bf55a508cce3629d3b67a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "psr/log": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Clockwork": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "itsgoingd",
+                    "email": "itsgoingd@luzer.sk",
+                    "homepage": "http://twitter.com/itsgoingd"
+                }
+            ],
+            "description": "Server-side component of Clockwork, a Chrome extension for PHP development",
+            "homepage": "http://github.com/itsgoingd/clockwork",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "logging",
+                "profiling"
+            ],
+            "time": "2014-01-01 02:05:59"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -1594,7 +1639,8 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "fzaninotto/faker": 20
+        "fzaninotto/faker": 20,
+        "itsgoingd/clockwork": 20
     },
     "platform": [
 
