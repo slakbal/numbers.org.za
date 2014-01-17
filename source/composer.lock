@@ -54,16 +54,16 @@
         },
         {
             "name": "d11wtq/boris",
-            "version": "v1.0.6",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/d11wtq/boris.git",
-                "reference": "7db59be30dad2e6f902db348e21a939215fbd967"
+                "reference": "125dd4e5752639af7678a22ea597115646d89c6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/d11wtq/boris/zipball/7db59be30dad2e6f902db348e21a939215fbd967",
-                "reference": "7db59be30dad2e6f902db348e21a939215fbd967",
+                "url": "https://api.github.com/repos/d11wtq/boris/zipball/125dd4e5752639af7678a22ea597115646d89c6e",
+                "reference": "125dd4e5752639af7678a22ea597115646d89c6e",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-11-18 12:13:16"
+            "time": "2014-01-17 12:21:18"
         },
         {
             "name": "filp/whoops",
@@ -228,12 +228,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/itsgoingd/clockwork.git",
-                "reference": "82258c0ecf2dcf82c77bf55a508cce3629d3b67a"
+                "reference": "3f301b2b85e2976c8987498a3b386a11209e332a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/82258c0ecf2dcf82c77bf55a508cce3629d3b67a",
-                "reference": "82258c0ecf2dcf82c77bf55a508cce3629d3b67a",
+                "url": "https://api.github.com/repos/itsgoingd/clockwork/zipball/3f301b2b85e2976c8987498a3b386a11209e332a",
+                "reference": "3f301b2b85e2976c8987498a3b386a11209e332a",
                 "shasum": ""
             },
             "require": {
@@ -265,7 +265,7 @@
                 "logging",
                 "profiling"
             ],
-            "time": "2014-01-01 02:05:59"
+            "time": "2014-01-14 10:48:25"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -321,12 +321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e7bcc5741dff0ac6bd16d0d26248d14d8a285842"
+                "reference": "3e7339bbf295b361d8c56101e478e0e95647f500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e7bcc5741dff0ac6bd16d0d26248d14d8a285842",
-                "reference": "e7bcc5741dff0ac6bd16d0d26248d14d8a285842",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3e7339bbf295b361d8c56101e478e0e95647f500",
+                "reference": "3e7339bbf295b361d8c56101e478e0e95647f500",
                 "shasum": ""
             },
             "require": {
@@ -430,7 +430,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-01-09 04:59:16"
+            "time": "2014-01-17 03:59:34"
         },
         {
             "name": "monolog/monolog",
@@ -438,12 +438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "a1e98f4e1da5b0235a74d11dcf7cdb2692b28ffc"
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/a1e98f4e1da5b0235a74d11dcf7cdb2692b28ffc",
-                "reference": "a1e98f4e1da5b0235a74d11dcf7cdb2692b28ffc",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
+                "reference": "7f783c0ab09dc341f858882e2d2ce6fc36ca1351",
                 "shasum": ""
             },
             "require": {
@@ -455,7 +455,7 @@
                 "doctrine/couchdb": "dev-master",
                 "mlehner/gelf-php": "1.0.*",
                 "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "0.5.*",
+                "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*"
             },
             "suggest": {
@@ -497,7 +497,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-01-01 18:24:16"
+            "time": "2014-01-17 14:16:06"
         },
         {
             "name": "nesbot/carbon",
@@ -741,12 +741,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "9d0201ed9ef4fae09ed251897260941af230bed3"
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/9d0201ed9ef4fae09ed251897260941af230bed3",
-                "reference": "9d0201ed9ef4fae09ed251897260941af230bed3",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/5f2eea628eb465d866ad2771927d83769c8f956c",
+                "reference": "5f2eea628eb465d866ad2771927d83769c8f956c",
                 "shasum": ""
             },
             "require": {
@@ -780,7 +780,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-01-08 16:38:22"
+            "time": "2014-01-16 14:10:29"
         },
         {
             "name": "psr/log",
