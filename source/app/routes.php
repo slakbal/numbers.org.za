@@ -1,8 +1,14 @@
 <?php
 
-Route::any("/", function () {
-    return View::make("index");
-});
+Route::any("/", [
+    "as"   => "index/index",
+    "uses" => "IndexController@indexAction"
+]);
+
+Route::any("person/search", [
+    "as"   => "person/search",
+    "uses" => "PersonController@searchAction"
+]);
 
 Route::any("api/person/index", [
     "as"   => "api/person/index",

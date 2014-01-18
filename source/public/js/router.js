@@ -1,9 +1,40 @@
-define([], function() {
+/**
+ * @jsx React.DOM
+ */
 
-    var Router = {
+define([
+    "backbone",
+    "component/index/index",
+    "component/person/search",
+    "react"
+], function(
+    Backbone,
+    IndexIndex,
+    PersonSearch,
+    React
+) {
 
-    };
+    return Backbone.Router.extend({
 
-    return Router;
+        "routes" : {
+            ""              : "index/index",
+            "person/search" : "person/search"
+        },
+
+        "index/index" : function() {
+            React.renderComponent(
+                IndexIndex(null ),
+                document.body
+            );
+        },
+
+        "person/search" : function() {
+            React.renderComponent(
+                PersonSearch(null ),
+                document.body
+            );
+        }
+
+    });
 
 });
