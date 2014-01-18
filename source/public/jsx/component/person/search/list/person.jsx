@@ -12,7 +12,7 @@ define([
         "render" : function() {
             return (
                 <div className="person">
-                    {this.props.person}
+                    {this.props.model.first_name}
                 </div>
             );
         }

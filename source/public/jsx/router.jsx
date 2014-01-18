@@ -38,7 +38,47 @@ define([
                 document.body
             );
 
-            collection.fetch();
+            collection.fetch({
+                "data" : {
+                    "page"  : this.get("page", 1),
+                    "limit" : this.get("limit", 10)
+                }
+            });
+        },
+
+        "getQueryStringParemeters" : function() {
+            var query = window.location.search.substring(1);
+            return query.split("&");
+        },
+
+        "get" : function(key, def) {
+            parts = this.getQueryStringParemeters();
+
+            for (var i = 0; i < parts.length; i++) {
+
+                var pair = parts[i].split("=");
+
+                if (pair[0] == key) {
+                    return unescape(pair[1]);
+                }
+            }
+
+            return (def || null);
+        },
+
+        "has" : function(key) {
+            parts = this.getQueryStringParemeters();
+
+            for (var i = 0; i < parts.length; i++) {
+
+                var pair = parts[i].split("=");
+
+                if (pair[0] == key) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
     });

@@ -22,15 +22,13 @@ define([
             this.props.collection.off("add change remove");
         },
         "render" : function() {
-            console.log(this.props.collection.each);
-
-            // var personNodes = this.state.people.map(function(person) {
-            //     return <PersonSearchListPerson key={person.id} model={person} />;
-            // });
+            var personNodes = _(this.props.collection.attributes).map(function(person) {
+                return <PersonSearchListPerson key={person.id} model={person} />;
+            });
 
             return (
                 <div className="people">
-                    
+                    {personNodes}
                 </div>
             );
         }
