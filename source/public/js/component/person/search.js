@@ -27,7 +27,7 @@ define([
                     ),
                     Row(null, 
                         Column( {className:"md-12"}, 
-                            PersonSearchList(null )
+                            PersonSearchList( {collection:this.props.collection} )
                         )
                     )
                 )

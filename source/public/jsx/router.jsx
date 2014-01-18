@@ -6,11 +6,13 @@ define([
     "backbone",
     "component/index/index",
     "component/person/search",
+    "collection/people",
     "react"
 ], function(
     Backbone,
     IndexIndex,
     PersonSearch,
+    People,
     React
 ) {
 
@@ -29,10 +31,14 @@ define([
         },
 
         "person/search" : function() {
+            var collection = new People();
+
             React.renderComponent(
-                <PersonSearch />,
+                <PersonSearch collection={collection} />,
                 document.body
             );
+
+            collection.fetch();
         }
 
     });

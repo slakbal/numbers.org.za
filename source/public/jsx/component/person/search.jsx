@@ -27,7 +27,7 @@ define([
                     </Row>
                     <Row>
                         <Column className="md-12">
-                            <PersonSearchList />
+                            <PersonSearchList collection={this.props.collection} />
                         </Column>
                     </Row>
                 </Container>
