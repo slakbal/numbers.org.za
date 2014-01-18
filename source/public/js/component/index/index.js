@@ -13,7 +13,6 @@ define([
     Container,
     Row
 ) {
-
     return React.createClass({
         "render" : function() {
             return (
@@ -27,5 +26,4 @@ define([
             );
         }
     });
-
 });

@@ -7,15 +7,16 @@ define([
     "component/index/index",
     "component/person/search",
     "collection/people",
+    "input",
     "react"
 ], function(
     Backbone,
     IndexIndex,
     PersonSearch,
     People,
+    Input,
     React
 ) {
-
     return Backbone.Router.extend({
 
         "routes" : {
@@ -30,57 +31,21 @@ define([
             );
         },
 
-        "person/search" : function() {
+        "person/search" : function(query) {
             var collection = new People();
 
             React.renderComponent(
-                <PersonSearch collection={collection} />,
+                <PersonSearch router={this} collection={collection} />,
                 document.body
             );
 
             collection.fetch({
                 "data" : {
-                    "page"  : this.get("page", 1),
-                    "limit" : this.get("limit", 10)
+                    "page"  : Input.get("page", 1),
+                    "limit" : Input.get("limit", 10)
                 }
             });
-        },
-
-        "getQueryStringParemeters" : function() {
-            var query = window.location.search.substring(1);
-            return query.split("&");
-        },
-
-        "get" : function(key, def) {
-            parts = this.getQueryStringParemeters();
-
-            for (var i = 0; i < parts.length; i++) {
-
-                var pair = parts[i].split("=");
-
-                if (pair[0] == key) {
-                    return unescape(pair[1]);
-                }
-            }
-
-            return (def || null);
-        },
-
-        "has" : function(key) {
-            parts = this.getQueryStringParemeters();
-
-            for (var i = 0; i < parts.length; i++) {
-
-                var pair = parts[i].split("=");
-
-                if (pair[0] == key) {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
     });
-
 });

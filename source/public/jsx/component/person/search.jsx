@@ -7,32 +7,37 @@ define([
     "component/bootstrap/column",
     "component/bootstrap/container",
     "component/bootstrap/row",
-    "component/person/search/list"
+    "component/person/search/list",
+    "component/person/search/pagination"
 ], function(
     React,
-    Column,
-    Container,
-    Row,
-    PersonSearchList
+    BootstrapColumn,
+    BootstrapContainer,
+    BootstrapRow,
+    PersonSearchList,
+    PersonSearchPagination
 ) {
-
     return React.createClass({
         "render" : function() {
             return (
-                <Container>
-                    <Row>
-                        <Column className="md-12">
+                <BootstrapContainer>
+                    <BootstrapRow>
+                        <BootstrapColumn className="md-12">
                             <h1>Person Search</h1>
-                        </Column>
-                    </Row>
-                    <Row>
-                        <Column className="md-12">
-                            <PersonSearchList collection={this.props.collection} />
-                        </Column>
-                    </Row>
-                </Container>
+                        </BootstrapColumn>
+                    </BootstrapRow>
+                    <BootstrapRow>
+                        <BootstrapColumn className="md-12">
+                            <PersonSearchList router={this.props.router} collection={this.props.collection} />
+                        </BootstrapColumn>
+                    </BootstrapRow>
+                    <BootstrapRow>
+                        <BootstrapColumn className="md-12">
+                            <PersonSearchPagination router={this.props.router} collection={this.props.collection} />
+                        </BootstrapColumn>
+                    </BootstrapRow>
+                </BootstrapContainer>
             );
         }
     });
-
 });

@@ -11,15 +11,16 @@ define([
     React,
     PersonSearchListPerson
 ) {
-
     return React.createClass({
         "componentWillMount" : function() {
-            this.props.collection.on("add change remove", (function() {
+            this.callback = (function() {
                 this.forceUpdate();
-            }).bind(this));
+            }).bind(this);
+
+            this.props.collection.on("add change remove", this.callback);
         },
         "componentWillUnmount" : function() {
-            this.props.collection.off("add change remove");
+            this.props.collection.off("add change remove", this.callback);
         },
         "render" : function() {
             var personNodes = _(this.props.collection.attributes).map(function(person) {
@@ -33,5 +34,4 @@ define([
             );
         }
     });
-
 });

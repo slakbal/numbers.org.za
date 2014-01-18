@@ -7,32 +7,37 @@ define([
     "component/bootstrap/column",
     "component/bootstrap/container",
     "component/bootstrap/row",
-    "component/person/search/list"
+    "component/person/search/list",
+    "component/person/search/pagination"
 ], function(
     React,
-    Column,
-    Container,
-    Row,
-    PersonSearchList
+    BootstrapColumn,
+    BootstrapContainer,
+    BootstrapRow,
+    PersonSearchList,
+    PersonSearchPagination
 ) {
-
     return React.createClass({
         "render" : function() {
             return (
-                Container(null, 
-                    Row(null, 
-                        Column( {className:"md-12"}, 
+                BootstrapContainer(null, 
+                    BootstrapRow(null, 
+                        BootstrapColumn( {className:"md-12"}, 
                             React.DOM.h1(null, "Person Search")
                         )
                     ),
-                    Row(null, 
-                        Column( {className:"md-12"}, 
-                            PersonSearchList( {collection:this.props.collection} )
+                    BootstrapRow(null, 
+                        BootstrapColumn( {className:"md-12"}, 
+                            PersonSearchList( {router:this.props.router, collection:this.props.collection} )
+                        )
+                    ),
+                    BootstrapRow(null, 
+                        BootstrapColumn( {className:"md-12"}, 
+                            PersonSearchPagination( {router:this.props.router, collection:this.props.collection} )
                         )
                     )
                 )
             );
         }
     });
-
 });
