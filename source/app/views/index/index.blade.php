@@ -1,5 +1,4 @@
 @extends("layout")
-
 @section("content")
-    index/index (static)
+    index/index
 @stop

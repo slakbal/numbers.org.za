@@ -1,5 +1,4 @@
 @extends("layout")
-
 @section("content")
-    person/search (static)
+    person/search
 @stop
