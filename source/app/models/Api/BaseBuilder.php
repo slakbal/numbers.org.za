@@ -1,7 +1,11 @@
 <?php
 
+namespace Api;
+
+use Illuminate\Database\Eloquent\Builder;
+
 class BaseBuilder
-extends Illuminate\Database\Eloquent\Builder
+extends Builder
 {
     protected $embeddables = [];
 

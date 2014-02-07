@@ -1,5 +1,7 @@
 <?php
 
+use Api\Title;
+
 class TitleTableSeeder
 extends DatabaseSeeder
 {

@@ -2,9 +2,9 @@
 
 namespace Api;
 
+use Api\Person;
 use Config;
 use Input;
-use Person;
 use Response;
 
 class PersonController

@@ -1,5 +1,9 @@
 <?php
 
+use Api\Gender;
+use Api\Person;
+use Api\Title;
+
 class PersonTableSeeder
 extends DatabaseSeeder
 {

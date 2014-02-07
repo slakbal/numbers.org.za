@@ -1,5 +1,7 @@
 <?php
 
+namespace Api;
+
 class PersonBuilder
 extends BaseBuilder
 {

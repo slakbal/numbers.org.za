@@ -7,6 +7,9 @@
         <link type="text/css" rel="stylesheet" href="{{ asset("vendor/bootstrap.3.0.3/css/bootstrap.theme.css") }}">
     </head>
     <body>
+        <div class="header">
+            @include("include/header")
+        </div>
         @yield("content")
         <script data-main="{{ asset("js/main.js") }}" src="{{ asset("vendor/require.2.1.10/require.js") }}"></script>
     </body>

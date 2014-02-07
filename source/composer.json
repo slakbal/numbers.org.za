@@ -6,7 +6,8 @@
     "require"     : {
         "laravel/framework"   : "4.1.*",
         "fzaninotto/faker"    : "1.4.*@dev",
-        "itsgoingd/clockwork" : "dev-master"
+        "itsgoingd/clockwork" : "dev-master",
+        "guzzle/guzzle"       : "3.7"
     },
     "autoload" : {
         "classmap" : [

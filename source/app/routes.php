@@ -5,9 +5,19 @@ Route::any("/", [
     "uses" => "IndexController@indexAction"
 ]);
 
-Route::any("person/search", [
-    "as"   => "person/search",
-    "uses" => "PersonController@searchAction"
+Route::any("person/index", [
+    "as"   => "person/index",
+    "uses" => "PersonController@indexAction"
+]);
+
+Route::any("person/deceased", [
+    "as"   => "person/deceased",
+    "uses" => "PersonController@deceasedAction"
+]);
+
+Route::any("person/deleted", [
+    "as"   => "person/deleted",
+    "uses" => "PersonController@deletedAction"
 ]);
 
 Route::any("api/person/index", [

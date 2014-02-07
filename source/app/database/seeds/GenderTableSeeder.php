@@ -1,5 +1,7 @@
 <?php
 
+use Api\Gender;
+
 class GenderTableSeeder
 extends DatabaseSeeder
 {

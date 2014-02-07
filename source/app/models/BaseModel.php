@@ -1,35 +1,24 @@
 <?php
 
-use Carbon\Carbon;
+use Guzzle\Http\Client;
 
 class BaseModel
-extends Eloquent
 {
-    protected $softDelete = true;
-
-    protected $guarded = ["id"];
-
-    protected function getHumanTimestampAttribute($column)
+    protected function request($endpoint, $method, $parameters)
     {
-        if ($this->attributes[$column]) {
-            return Carbon::parse($this->attributes[$column])->diffForHumans();
+        $client = new Client(Config::get("api.endpoint"));
+
+        if ($method == "POST")
+        {
+            $request = $client->post($endpoint, null, $parameters);
+        }
+        else
+        {
+            $query = http_build_query($parameters);
+            $request = $client->get($endpoint . "?" . $query);
         }
 
-        return null;
-    }
-
-    public function getHumanCreatedAtAttribute()
-    {
-        return $this->getHumanTimestampAttribute("created_at");
-    }
-
-    public function getHumanUpdatedAtAttribute()
-    {
-        return $this->getHumanTimestampAttribute("updated_at");
-    }
-
-    public function getHumanDeletedAtAttribute()
-    {
-        return $this->getHumanTimestampAttribute("deleted_at");
+        $response = $request->send();
+        return $response->json();
     }
 }

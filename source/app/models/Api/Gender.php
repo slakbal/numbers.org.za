@@ -1,5 +1,7 @@
 <?php
 
+namespace Api;
+
 class Gender
 extends BaseModel
 {
@@ -7,6 +9,6 @@ extends BaseModel
 
     public function people()
     {
-        return $ths->hasMany("Person");
+        return $ths->hasMany("Api\Person");
     }
 }
